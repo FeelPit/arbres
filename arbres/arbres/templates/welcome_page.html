@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+	{% load static %}
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+		<link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet">
+		<link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+		<script src="http://bootstraptema.ru/plugins/jquery/jquery-1.11.3.min.js"></script>
+		<script src="http://bootstraptema.ru/plugins/2016/shieldui/script.js"></script>
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+	</head>
+	<style>
+		html,body{
+			height: 100%;
+			font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+		}
+		#page{
+			display: flex;
+			flex-direction: column;
+			height: 50%;
+			width: 100%;
+			padding: 0;
+		}
+		#first_part{
+			  position: relative;
+			  background-color: black;
+			  height: 100%;
+			  min-height: 25rem;
+			  width: 100%;
+			  overflow: hidden;
+		}
+		video{
+			  position: absolute;
+			  top: 50%;
+			  left: 50%;
+			  min-width: 100%;
+			  min-height: 100%;
+			  width: auto;
+			  height: auto;
+			  z-index: 0;
+			  -ms-transform: translateX(-50%) translateY(-50%);
+			  -moz-transform: translateX(-50%) translateY(-50%);
+			  -webkit-transform: translateX(-50%) translateY(-50%);
+			  transform: translateX(-50%) translateY(-50%);		
+		}
+		#tx{
+			position: relative;
+		}
+		#second_part{
+			height: 100%;
+			display: flex;
+			flex-direction: row;
+		}
+		#text{
+			margin:5px;
+		}
+		#qr{
+			display: flex;
+			flex-direction: row;			
+		}	
+	</style>
+	<body>
+		<header id="first_part">
+			<video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
+				<source src="{% static 'images/rowpos.mp4' %}" type="video/mp4">
+			</video>
+			<div class="container h-100" id="tx">
+			  <div class="d-flex h-100 text-center align-items-center">
+			    <div class="w-100 text-white">
+			      <h1 class="display-3">Trees <i class="fab fa-pagelines" style="color:green"></i></h1>
+			      <p class="lead mb-0">Lycée Joffre</p>
+			    </div>
+			  </div>
+			</div>			
+		</header>		
+		<div class="container-fluid" id="page" style="margin-top: 20px;">
+			<div class="container-fluid" id="second_part">
+				<div class="info bg-light border rounded shadow-sm p-3 mb-5" id="text" >
+					<h3>Trees</h3>
+					<span>Is allowance instantly strangers applauded discourse so.</br>Separate entrance welcomed sensible laughing why one moderate shy. </br>We seeing piqued garden he. As in merry at forth least ye stood. And cold sons yet with. </br>Delivered middleton therefore me at. </span>
+					<form method="GET" action="http://127.0.0.1:8090/catalog" style="margin-top: 15px">
+						<button type="submit" class="btn btn-success" style="height: 50px; width: 250px;">Look our catalog <i class="fas fa-tree"></i></button>
+					</form>						
+				</div>
+				<div class="info bg-light border rounded shadow-sm p-3 mb-5" id="text" style="flex-grow: 3">
+					<div class="container" id="qr">
+						<div id="txt">
+							<h3>QR-code</h3>
+							<span>Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet, qui blanditiis praesentium voluptatum deleniti atque corrupti, quos dolores et quas molestias excepturi sint, quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt, explicabo!</span>
+							<form method="GET" action="http://127.0.0.1:8090/catalog" style="margin-top: 15px">
+								<button type="submit" class="btn btn-info" style="height: 50px; width: 250px;">Make your QR-code <i class="fas fa-qrcode"></i></button>
+							</form>							
+						</div>
+						<div id="qrcode" style="margin-left: 100px">	
+							<img src="{% static 'qr.png' %}" style="height: 180px; width: 180px">
+						</div>
+					</div>	
+				</div>
+			</div>	
+		</div>
+		<footer class="footer bg-dark" style="height: 150px; display: flex; flex-direction: row;">
+				<div style="padding-left: 15px; padding-top: 6px; order: 1; flex-grow: 1">
+					<h5 class="text-light" >Adress:</h5> 
+					<address class="text-light"><span><strong>Lycée Joffre</strong>, </br> Montpellier, France <br> <strong>E-mail:</strong> <br> <a href="#">test@gmail.com</a></span></address>
+				</div>	 
+				<div style="order: 3; flex-grow: 2; padding-left: 15px; padding-top: 6px;">
+					<h5 class="text-light" >Social medias:</h5>
+					<span style="font-size: 50px" class="text-primary"><i class="fab fa-twitter-square"></i></span>
+				</div>  	
+		</footer>		
+	</body>
+</html>
